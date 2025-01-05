@@ -7,7 +7,7 @@ const SignOut = () => {
   const navigate=useNavigate();
   const handleSignOut=async()=>{
     try{
-      const response=await axios.post('http://localhost:8000/auth/logout',
+      const response=await axios.post('https://tutedude-assign.onrender.com/auth/logout',
         {},
         {
           withCredentials:true //to send cookies
