@@ -49,10 +49,11 @@ const login=async(req,res)=>{
         }
         const {accessToken,refreshToken}=await generateAccessandRefreshToken(user._id)
         const options = {
-          httpOnly: true,
-          sameSite: 'lax',  // Use 'lax' for local development
-          secure: false,    // Secure is false for HTTP
-        };
+           httpOnly: true,
+           sameSite: 'none',  // Allows cookies to be sent across different domains
+           secure: true,      // Ensures cookies are sent only over HTTPS
+         };
+
         
         res.cookie("accessToken",accessToken,options).cookie("refreshToken",refreshToken,options)
         return res.status(200).json({success:true,message:"Login successful",tokens: {accessToken,refreshToken},user:{username:user.username}})
@@ -70,10 +71,10 @@ const logOut=async(req,res)=>{
             }
         })
         const options = {
-          httpOnly: true,
-          sameSite: 'lax',
-          secure: false,
-        };
+           httpOnly: true,
+           sameSite: 'none',  // Allows cookies to be sent across different domains
+           secure: true,      // Ensures cookies are sent only over HTTPS
+         };
         res.clearCookie("accessToken",options).clearCookie("refreshToken",options)
         return res.status(200).json({success:true,message:"User logged out"})
 
