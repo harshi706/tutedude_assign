@@ -14,7 +14,7 @@ const Home = () => {
   // Fetch users and friends
   const showUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/auth/homie", {
+      const response = await axios.get("https://tutedude-assign.onrender.com/auth/homie", {
         withCredentials: true, // Critical to send cookies
       });
 
@@ -43,7 +43,7 @@ const Home = () => {
   const handleAddFriend = async (friendId) => {
     try {
       const response = await axios.post(
-        "http://localhost:8000/auth/add",
+        "https://tutedude-assign.onrender.com/auth/add",
         { friendId },
         {
           withCredentials: true,
@@ -68,7 +68,7 @@ const Home = () => {
   const handleRemoveFriend = async (friendId) => {
     try {
       const response = await axios.post(
-        "http://localhost:8000/auth/remove",
+        "https://tutedude-assign.onrender.com/auth/remove",
         { friendId },
         { withCredentials: true }
       );
