@@ -8,7 +8,7 @@ const Requests = () => {
   // Fetch friend requests
   const getFriendRequests = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/auth/getrequest', {
+      const response = await axios.get('https://tutedude-assign.onrender.com/auth/getrequest', {
         withCredentials: true, // Send cookies if needed
       });
       setFriendRequests(response.data.friendRequests);
@@ -23,7 +23,7 @@ const Requests = () => {
 
   const showUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/auth/homie", {
+      const response = await axios.get("https://tutedude-assign.onrender.com/auth/homie", {
         withCredentials: true, // Critical to send cookies
       });
 
@@ -50,7 +50,7 @@ const Requests = () => {
   const handleAcceptRequest = async (requestId) => {
     try {
       const response = await axios.post(
-        'http://localhost:8000/auth/accept',
+        'https://tutedude-assign.onrender.com/auth/accept',
         { friendId: requestId },
         { withCredentials: true }
       );
@@ -76,7 +76,7 @@ const Requests = () => {
   // Handle rejecting a friend request
   const handleRejectRequest = async (requestId) => {
     try {
-      const response = await axios.post('http://localhost:8000/auth/decline', 
+      const response = await axios.post('https://tutedude-assign.onrender.com/auth/decline', 
         { friendId: requestId }, 
         { withCredentials: true }
       );
