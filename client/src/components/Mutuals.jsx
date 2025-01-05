@@ -8,7 +8,7 @@ const Mutuals = () => {
 
   const fetchRecommendations = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/auth/recommendations', {
+      const response = await axios.get('https://tutedude-assign.onrender.com/auth/recommendations', {
         withCredentials: true, 
       });
       setRecommendations(response.data.recommendations);
