@@ -18,7 +18,7 @@ const SignUp = () => {
   const handleSubmit=async(e)=>{
     e.preventDefault();
     try{
-      const response=await axios.post("http://localhost:8000/auth/signup",formData,{
+      const response=await axios.post("https://tutedude-assign.onrender.com/auth/signup",formData,{
         headers:{
           "Content-Type":"application/json"
         },
