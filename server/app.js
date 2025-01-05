@@ -3,22 +3,14 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser';
 
 const app=express();
-const allowedOrigins = [
-  'https://tutedude-assign-1.onrender.com',
-  'http://localhost:5173'  //for development
-];
+const allowedOrigins = ['https://tutedude-assign-1.onrender.com'];
+
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,  // To allow cookies
+  origin: allowedOrigins,
+  credentials: true,  // To allow sending cookies
 }));
 
-// Handle preflight requests for all routes
+// Handle preflight requests
 app.options('*', cors());
 app.use(express.json())
 app.use(express.urlencoded())
